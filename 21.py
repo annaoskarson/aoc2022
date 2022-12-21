@@ -9,7 +9,7 @@ for l in data:
 
 def say(name):
     
-    if monkeys[name].isdigit():
+    if monkeys[name].lstrip('-').isdigit():
         return(int(monkeys[name]))
     else:
         wait = monkeys[name]
@@ -29,3 +29,25 @@ def say(name):
             return(monkeys[wait])
 
 print('1:', say('root'))
+
+# Continuing on computer
+# Looked at some trials and found:
+#   - If first monkey in pair is smaller, decrease x
+#   - Start on a random high number
+#   - No need for negative x:es
+
+m1, _,  m2 = monkeys['root'].split(' ')
+x = 1000000000000000000000000
+dx = x // 2
+while True:
+    monkeys['humn'] = str(x)
+    m1v, m2v = say(m1), say(m2)
+    if m1v == m2v:
+        break
+    if m1v < m2v:
+        x -= dx
+    else:
+        x += dx
+    dx = dx // 2        
+
+print('2:', x)
