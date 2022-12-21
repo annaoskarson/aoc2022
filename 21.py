@@ -38,7 +38,7 @@ print('1:', say('root'))
 
 m1, _,  m2 = monkeys['root'].split(' ')
 x = 100000000000000
-dx = -(-x // 2) # Floor division
+dx = -(-x // 2) # Ceiling division
 while True:
     monkeys['humn'] = str(x)
     m1v, m2v = say(m1), say(m2)
@@ -48,6 +48,6 @@ while True:
         x -= dx
     else:
         x += dx
-    dx = -(-dx // 2) # Floor division    
+    dx = -(-dx // 2) # Ceiling division    
 
 print('2:', x)
