@@ -32,13 +32,13 @@ print('1:', say('root'))
 
 # Continuing on computer
 # Looked at some trials and found:
-#   - If first monkey in pair is smaller, decrease x
+#   - If first monkey in pair is smaller, we need to decrease x
 #   - Start on a random high number
 #   - No need for negative x:es
 
 m1, _,  m2 = monkeys['root'].split(' ')
-x = 1000000000000000000000000
-dx = x // 2
+x = 100000000000000
+dx = -(-x // 2) # Floor division
 while True:
     monkeys['humn'] = str(x)
     m1v, m2v = say(m1), say(m2)
@@ -48,6 +48,6 @@ while True:
         x -= dx
     else:
         x += dx
-    dx = dx // 2        
+    dx = -(-dx // 2) # Floor division    
 
 print('2:', x)
